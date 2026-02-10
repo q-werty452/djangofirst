@@ -49,6 +49,14 @@
             <input class="form-control me-2" name='q' type="search" placeholder="Поиск" aria-label="Поиск">
             <button class="btn btn-outline-light" type="submit">Поиск</button>
           </form>
+            (%if user.is_authenticated:%)
+            <a href="" class="btn_btn-primary">Ахмед</a>
+            <a href="" class="btn_btn-primary">Выйти</a>
+            {% else %}
+            <a href="" class="btn_btn-primary">Вход</a>
+            <a href="" class="btn_btn-primary">Регистрация</a>
+            {%endif%} 
+
         </div>
       </div>
     </nav>

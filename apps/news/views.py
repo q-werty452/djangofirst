@@ -93,8 +93,10 @@ def category_detail(request, slug):
     category_all = Category.objects.filter(news__isnull=False).distinct()
     category = get_object_or_404(Category, slug=slug)
     news = News.objects.filter(category=category)
+
     context = {
         'news':news,
         'category_all':category_all
+
     }
     return render(request, 'pages/category.html', context)
