@@ -17,14 +17,3 @@ urlpatterns = [
     path('registr/', registr, name='registr'),
 
 ]
-# # path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-#     path('registr/', registr, name='registr'),path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-#     path('registr/', registr, name='registr'),path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-#     path('registr/', registr, name='registr'),path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-#     path('registr/', registr, name='registr'),path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-#     path('registr/', registr, name='registr'),path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-#     path('registr/', registr, name='registr'),path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-#     path('registr/', registr, name='registr'),path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-#     path('registr/', registr, name='registr'),path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-#     path('registr/', registr, name='registr'),path('logout/', auth_views.LogoutView.as_view(), name='logout'),
-#     # path('registr/', registr, name='registr'),
