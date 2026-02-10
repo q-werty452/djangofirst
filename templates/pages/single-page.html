@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+    
+{% block content %}
+<h1 class="text-center">отдельная страница</h1>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-12">
+            <img style="height: 300px; object-fit: cover;" src="{{news.image.url}}" class="card-img-top">
+            <h1>{{news.title}}</h1>
+            <p>{{news.description|safe}}</p>
+        </div>
+        <!-- col -->
+        <div class="col-lg-4 col-12">
+            <h3>Ваш комментарии</h3>
+            <form method='POST'>
+                {% csrf_token %}
+                {{form.name}}
+                {{form.text}}
+                <button type="submit" class="btn btn-primary mt-2">Отправить</button>
+            </form>
+            <div class="comments mt-3">
+                <h3>Опубликованные комментарии</h3>
+                <!-- com -->
+                {% for comment in comments %}
+                <div class="comment">
+                    <p><b>{{comment.name}}</b> 
+                        Опубликовано: <i>{{comment.created_at}}</i>
+                    </p> 
+                    <p>{{comment.text}}</p>
+                </div>
+                {% endfor %}
+                <!-- com -->
+            </div>
+        </div>
+        <!-- col -->
+    </div>
+</div>
+{% endblock content %}
