@@ -1,6 +1,6 @@
 {%extends "base.html" %}
 {% block content %}
-<div class="conteiner mt-5">
+<div class="container mt-5">
     <h2 class="text-center">Войти в аккаунт</h2>
     <form action="{% url 'login' %}" method="post">
         {% csrf_token %}

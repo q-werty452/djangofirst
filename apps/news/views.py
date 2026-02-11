@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-from django.utils.text import slugify
+
 
 
 from apps.news.models import News, Category
@@ -17,7 +17,6 @@ def create_news(request):
         if form.is_valid():
             news = form.save(commit=False)
             news.author = request.user
-            news.slug = slugify(news.title)
             news.save()
             return redirect('news_detail', slug=news.slug)
     else:

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5 mb-5">
+    <h2>Добавить новость</h2>
+    <!-- enctype="multipart/form-data" обязателен для загрузки картинок -->
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- form.media нужен для работы CKEditor -->
+        {{ form.media }}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Опубликовать</button>
+    </form>
+</div>
+{% endblock content %}
