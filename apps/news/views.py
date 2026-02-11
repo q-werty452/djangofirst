@@ -6,11 +6,30 @@ from django.utils.text import slugify
 
 
 from apps.news.models import News, Category
-from apps.news.forms import CommentForm
+from apps.news.forms import CommentForm, NewsCreateForm
 from django.db.models import Q 
 
 
 @login_required
+def create_news(request):
+    if request.method == 'POST':
+        form = NewsCreateForm(request.POST, request.FILES)
+        if form.is_valid():
+            news = form.save(commit=False)
+            news.author = request.user
+            news.slug = slugify(news.title)
+            news.save()
+            return redirect('news_detail', slug=news.slug)
+    else:
+        form = NewsCreateForm()
+    category_all = Category.objects.filter(news__isnull=False).distinct()
+    context = {
+        'form': form,
+        'category_all': category_all
+    }
+    return render(request, 'pages/create_news.html', context)
+
+
 def profile(request):
     user_news = News.objects.filter(author=request.user)
     category_all = Category.objects.filter(news__isnull=False).distinct()
