@@ -47,14 +47,14 @@
           <form action="{% url "search" %}" class="d-flex" role="search">
             {% csrf_token %}
             <input class="form-control me-2" name='q' type="search" placeholder="Поиск" aria-label="Поиск">
-            <button class="btn btn-outline-light" type="submit">Поиск</button>
+            <button class="btn btn-outline-light" style="padding: 25px; text-transform: lowercase;" type="submit">Поиск</button>
           </form>
             (%if user.is_authenticated:%)
-            <a href="" class="btn_btn-primary">Ахмед</a>
-            <a href="" class="btn_btn-primary">Выйти</a>
+            <a href="" class="btn btn-primary">{{ user.username  }}</a>
+            <a href="" class="btn btn-primary" href="{% url 'logout' %}">Выйти</a>
             {% else %}
-            <a href="" class="btn_btn-primary">Вход</a>
-            <a href="" class="btn_btn-primary">Регистрация</a>
+            <a href="" class="btn btn-primary" href="{% url 'login' %}">Вход</a>
+            <a href="" class="btn btn-primary" href="{% url 'registr' %}">Регистрация</a>
             {%endif%} 
 
         </div>

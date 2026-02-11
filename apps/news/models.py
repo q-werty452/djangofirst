@@ -1,5 +1,6 @@
 from django.db import models
 from django_ckeditor_5.fields import CKEditor5Field
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -16,6 +17,9 @@ class Category(models.Model):
 
 
 class News(models.Model):
+
+    author = models.ForeignKey(User, on_delete=models.CASCADE, null=True)   
+
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, 
         verbose_name="Категория", null=True
