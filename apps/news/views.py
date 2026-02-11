@@ -30,6 +30,7 @@ def create_news(request):
     return render(request, 'pages/create_news.html', context)
 
 
+@login_required
 def profile(request):
     user_news = News.objects.filter(author=request.user)
     category_all = Category.objects.filter(news__isnull=False).distinct()

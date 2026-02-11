@@ -1,5 +1,5 @@
 from django.urls import path
-from apps.news.views import homepage, news_detail, category_detail, search, profile, registr
+from apps.news.views import homepage, news_detail, category_detail, search, profile, registr, create_news
 from django.contrib.auth import views as auth_views
 
 
@@ -10,6 +10,7 @@ urlpatterns = [
     path('category/<slug:slug>/', category_detail, name='category_detail'),
 
     path('profile/', profile, name='profile'),
+    path('create_news/', create_news, name='create_news'),
     path('login/', auth_views.LoginView.as_view(template_name='pages/login.html'), name='login'),
 
 
