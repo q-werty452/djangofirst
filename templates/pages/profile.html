@@ -2,7 +2,8 @@
 {% block content %}
 <div class="container">
     <h2>профиль {{user.username}}</h2>
-    <a href="{% url 'create_news' %}" class="btn btn-prime">
+
+    <a href="{% url 'create_news' %}" class="btn btn-primary">
         добавить новость
     </a>
     <h4>Мои новостьи</h4>

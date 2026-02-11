@@ -2,7 +2,7 @@
 {% block content %}
 <div class="conteiner mt-5">
     <h2 class="text-center">Войти в аккаунт</h2>
-    <form action="{url 'login'}" method="post">
+    <form action="{% url 'login' %}" method="post">
         {% csrf_token %}
         <input class="form-control mt-2" name="username" type="text" placeholder="Логин" required>
         <input class="form-control mt-2" name="password" type="password" placeholder="Пароль" required>
@@ -10,4 +10,4 @@
     </form>
 </div>
 
-{% endblock content}
+{% endblock content %}
